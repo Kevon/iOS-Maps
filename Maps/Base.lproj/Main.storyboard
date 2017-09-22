@@ -1,25 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ATd-SN-ANf">
+                                <rect key="frame" x="40" y="34" width="240" height="128"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RWI-dw-2Os"/>
+                                </connections>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-ob-YBf">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" style="plain" id="QgJ-36-kuE">
+                                        <view key="customView" contentMode="scaleToFill" id="JUg-o3-Ddw">
+                                            <rect key="frame" x="16" y="6" width="110" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Me:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hn4-SF-o3S">
+                                                    <rect key="frame" x="21" y="6" width="29" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ubx-Qc-WSe">
+                                                    <rect key="frame" x="58" y="1" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Lq9-vv-UuH"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ubx-Qc-WSe" secondAttribute="trailing" id="6z8-uj-aeq"/>
+                                                <constraint firstItem="ubx-Qc-WSe" firstAttribute="centerY" secondItem="JUg-o3-Ddw" secondAttribute="centerY" id="FDb-uG-Isf"/>
+                                                <constraint firstItem="Hn4-SF-o3S" firstAttribute="leading" secondItem="JUg-o3-Ddw" secondAttribute="leading" id="dxS-JC-khX"/>
+                                                <constraint firstItem="Hn4-SF-o3S" firstAttribute="centerY" secondItem="JUg-o3-Ddw" secondAttribute="centerY" id="v4y-7z-Jhe"/>
+                                            </constraints>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="q8P-4D-VW2"/>
+                                    <barButtonItem title="NYC" id="YOg-Ot-MQl">
+                                        <connections>
+                                            <action selector="ButtonATapped:" destination="BYZ-38-t0r" id="nTA-6N-Hrz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EKk-xA-RAI"/>
+                                    <barButtonItem title="DC" id="0Cc-pC-0HZ">
+                                        <connections>
+                                            <action selector="ButtonBTapped:" destination="BYZ-38-t0r" id="Q2m-Ck-E58"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="km3-WV-gXI"/>
+                                    <barButtonItem title="Denver" id="Boo-DB-aDb">
+                                        <connections>
+                                            <action selector="ButtonCTapped:" destination="BYZ-38-t0r" id="Loo-Yi-vUa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hQg-ob-YBf" firstAttribute="top" secondItem="ATd-SN-ANf" secondAttribute="bottom" id="D19-ju-Nu9"/>
+                            <constraint firstItem="hQg-ob-YBf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="F9G-XJ-X2J"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hQg-ob-YBf" secondAttribute="bottom" id="FrD-Kk-IR2"/>
+                            <constraint firstItem="hQg-ob-YBf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JT4-Sd-5PA"/>
+                            <constraint firstItem="ATd-SN-ANf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LUB-zh-9zc"/>
+                            <constraint firstItem="ATd-SN-ANf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Sly-be-zfe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hQg-ob-YBf" secondAttribute="trailing" constant="-20" id="aRb-94-H7t"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hQg-ob-YBf" secondAttribute="bottom" id="f1N-FD-v4x"/>
+                            <constraint firstItem="ATd-SN-ANf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jXW-ci-zp6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ATd-SN-ANf" secondAttribute="trailing" constant="-20" id="pgM-Uz-GOJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ATd-SN-ANf" id="IMB-q1-KEN"/>
+                        <outlet property="switchField" destination="ubx-Qc-WSe" id="AV3-KV-UGt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="162" y="366"/>
         </scene>
     </scenes>
 </document>
